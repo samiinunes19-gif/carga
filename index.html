@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Recargas Celular</title>
+    <link rel="stylesheet" href="./css/styles.css?v=2.6">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo" style="gap: 8px; cursor: pointer; display: flex; align-items: center;" onclick="resetFunnel()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--primary)" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="4" width="20" height="16" rx="4" fill="var(--primary)"/>
+                    <path d="M7 12L10 15L17 8" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span style="font-weight: 800; font-size: 1.125rem; color: var(--primary);">Recargas Celular</span>
+            </div>
+            <div class="secure-badge" style="display: flex; align-items: center; gap: 5px; font-size: 0.75rem; font-weight: 600; color: #0f766e; background: #f0fdfa; padding: 0.25rem 0.75rem; border-radius: 99px; border: 1px solid #ccfbf1; font-family: inherit;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                Ambiente Seguro
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+
+        <div class="card" id="funnel-container" style="border: none; box-shadow: none; background: transparent; padding: 0;">
+            
+            <!-- STEP 1: DADOS (TELEFONE E OPERADORA) -->
+            <section class="funnel-step active" id="step-dados">
+                <h1 class="step-title" style="font-size: 1.5rem;">Recarga rápida</h1>
+                <p class="step-subtitle mb-6">Insira os dados para iniciar a recarga.</p>
+
+                <div class="card" style="box-shadow: 0 4px 0 var(--border-color);">
+                    <!-- Número -->
+                    <div class="input-wrapper">
+                        <label for="telefone" class="input-label">Número de telefone com DDD</label>
+                        <div class="input-icon-group mt-2">
+                            <input type="tel" id="telefone" class="input-field" style="padding-left: 1rem;" placeholder="(00) 00000-0000" maxlength="15" autocomplete="tel">
+                        </div>
+                        <span class="error-message" id="error-telefone">Número inválido.</span>
+                    </div>
+
+                    <!-- Divisor -->
+                    <div class="section-divider">
+                        <span class="divider-line"></span>
+                        <span class="divider-text">ESCOLHA A OPERADORA</span>
+                        <span class="divider-line"></span>
+                    </div>
+
+                    <!-- Operadoras (Foco Mobile, Só Logo) -->
+                    <div class="grid-2-cols" id="operadoras-grid">
+                        <div class="brand-card" data-brand="vivo" onclick="selectOperatorAndGo('vivo')">
+                            <img src="https://logodownload.org/wp-content/uploads/2014/02/vivo-logo-1-1.png" alt="Vivo Logo" class="brand-logo" style="max-height: 40px; transform: scale(1.1);">
+                        </div>
+                        <div class="brand-card" data-brand="claro" onclick="selectOperatorAndGo('claro')">
+                            <img src="https://logodownload.org/wp-content/uploads/2014/02/claro-logo-8.png" alt="Claro Logo" class="brand-logo" style="max-height: 40px;">
+                        </div>
+                        <div class="brand-card" data-brand="tim" onclick="selectOperatorAndGo('tim')">
+                            <img src="https://logodownload.org/wp-content/uploads/2015/02/tim-logo-0.png" alt="TIM Logo" class="brand-logo" style="max-height: 40px; transform: scale(2.2);">
+                        </div>
+                        <div class="brand-card" data-brand="oi" onclick="selectOperatorAndGo('oi')">
+                            <img src="https://logodownload.org/wp-content/uploads/2014/02/oi-logo-1.png" alt="Oi Logo" class="brand-logo" style="max-height: 40px; transform: scale(1.4);">
+                        </div>
+                        <div class="brand-card" data-brand="algar" onclick="selectOperatorAndGo('algar')">
+                            <span class="brand-text" style="font-size: 1.7rem; font-weight: 800; color: #00a859;">Algar</span>
+                        </div>
+                        <div class="brand-card" data-brand="correios" onclick="selectOperatorAndGo('correios')">
+                            <img src="https://logodownload.org/wp-content/uploads/2014/05/correios-logo-1-1.png" alt="Correios Logo" class="brand-logo" style="max-height: 40px; transform: scale(1.5);">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- STEP 2: VALORES E PAGAMENTO -->
+            <section class="funnel-step" id="step-valores">
+                <div style="text-align: center; margin-bottom: 1.5rem;">
+                    <h2 class="step-title" style="font-size: 1.75rem;">Escolha o valor</h2>
+                    <p class="step-subtitle" style="padding: 0 1rem; margin-top: 0.25rem;">Selecione uma opção para continuar. Os dados serão exibidos no resumo antes do pagamento.</p>
+                </div>
+
+                <!-- Top Info Box -->
+                <div class="info-box">
+                    <div>
+                        <span class="info-label">Operadora selecionada</span>
+                        <span class="info-value capitalize" id="resumo-operadora" style="color: var(--primary);">TIM</span>
+                    </div>
+                    <div class="info-right">
+                        <span class="info-label">Número</span>
+                        <span class="info-value" id="resumo-telefone" style="color: var(--primary);">(64) 96464-6464</span>
+                    </div>
+                </div>
+
+                <div class="section-divider">
+                    <span class="divider-line"></span>
+                    <span class="divider-text" style="font-size: 0.65rem;">RECARGAS AVULSAS</span>
+                    <span class="divider-line"></span>
+                </div>
+
+                <!-- Valores Grid (Recharges) -->
+                <div class="grid-3-cols" id="valores-grid">
+                    <!-- Dynamic recharges injected here -->
+                </div>
+
+                <div class="section-divider mt-6">
+                    <span class="divider-line"></span>
+                    <span class="divider-text" style="font-size: 0.7rem; font-weight: 800; color: var(--primary);">PLANOS DA OPERADORA</span>
+                    <span class="divider-line"></span>
+                </div>
+
+                <!-- Planos List (Operator Packages style) -->
+                <div class="planos-list" id="planos-grid" style="display: flex; flex-direction: column; gap: 1rem;">
+                    <!-- Dynamic plans injected here -->
+                </div>
+
+                <h3 class="section-heading mt-6" id="heading-recarga-selecionada" style="display: none;">Recarga selecionada</h3>
+                <div class="selected-box" id="box-recarga-selecionada" style="display: none; border: 2px solid var(--border-selected); box-shadow: none;">
+                    <div class="selected-badge">Selecionado</div>
+                    <div>
+                        <span class="info-label" style="font-size: 0.6rem; color: var(--text-secondary); margin-bottom: 0;">VALOR</span>
+                        <div class="selected-price" id="final-valor">R$ 100,00</div>
+                    </div>
+                    <div class="selected-bonus-container">
+                        <div class="selected-bonus" id="final-bonus">+50GB</div>
+                        <div class="selected-bonus-desc">DE INTERNET</div>
+                    </div>
+                </div>
+
+                <h3 class="section-heading mt-6">Pagamento</h3>
+                <div class="payment-card">
+                    <div class="payment-icon-wrapper pix">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.283 18.36a3.505 3.505 0 0 0 2.493-1.032l3.6-3.6a.684.684 0 0 1 .946 0l3.613 3.613a3.504 3.504 0 0 0 2.493 1.032h.71l-4.56 4.56a3.647 3.647 0 0 1-5.156 0L4.85 18.36ZM18.428 5.627a3.505 3.505 0 0 0-2.493 1.032l-3.613 3.614a.67.67 0 0 1-.946 0l-3.6-3.6A3.505 3.505 0 0 0 5.283 5.64h-.434l4.573-4.572a3.646 3.646 0 0 1 5.156 0l4.559 4.559ZM1.068 9.422 3.79 6.699h1.492a2.483 2.483 0 0 1 1.744.722l3.6 3.6a1.73 1.73 0 0 0 2.443 0l3.614-3.613a2.482 2.482 0 0 1 1.744-.723h1.767l2.737 2.737a3.646 3.646 0 0 1 0 5.156l-2.736 2.736h-1.768a2.482 2.482 0 0 1-1.744-.722l-3.613-3.613a1.77 1.77 0 0 0-2.444 0l-3.6 3.6a2.483 2.483 0 0 1-1.744.722H3.791l-2.723-2.723a3.646 3.646 0 0 1 0-5.156" fill="#32BCAD"/>
+                        </svg>
+                    </div>
+                    <span class="payment-name">Pix</span>
+                    <div class="radio-check">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary mt-6 w-full" id="btn-finalize" onclick="goToConfirmacao()" style="font-size: 1.125rem;">
+                    Finalizar recarga
+                </button>
+                
+                <button class="btn btn-secondary mt-3 w-full" onclick="goToStep('dados')">
+                    Voltar
+                </button>
+            </section>
+
+            <!-- STEP 2.5: CONFIRMAÇÃO DA RECARGA -->
+            <section class="funnel-step" id="step-confirmacao">
+                <div style="text-align: center; margin-bottom: 1.5rem;">
+                    <h2 class="step-title" style="font-size: 1.75rem;">Confira sua recarga</h2>
+                    <p class="step-subtitle" style="padding: 0 1rem; margin-top: 0.25rem;">Confira os dados antes de continuar para o pagamento.</p>
+                </div>
+
+                <div class="card confirmation-table-card" style="box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 0; border: 1px solid var(--border-color); overflow: hidden; border-radius: var(--radius-xl);">
+                    <div class="confirm-row">
+                        <span class="confirm-label">Número</span>
+                        <span class="confirm-value" id="confirm-telefone">(64) 96464-6464</span>
+                    </div>
+                    <div class="confirm-row">
+                        <span class="confirm-label">Operadora</span>
+                        <span class="confirm-value capitalize" id="confirm-operadora">TIM</span>
+                    </div>
+                    <div class="confirm-row">
+                        <span class="confirm-label">Internet</span>
+                        <span class="confirm-value" id="confirm-bonus">+50GB de internet</span>
+                    </div>
+                    <div class="confirm-row">
+                        <span class="confirm-label">Validade</span>
+                        <span class="confirm-value">30 dias</span>
+                    </div>
+                    <div class="confirm-row">
+                        <span class="confirm-label">Valor</span>
+                        <span class="confirm-value price-blue" id="confirm-valor" style="color: var(--bonus-color); font-weight: 900; font-size: 1.25rem;">R$ 100,00</span>
+                    </div>
+                    <div class="confirm-row" style="border-bottom: none;">
+                        <span class="confirm-label">Pagamento</span>
+                        <span class="confirm-value" style="font-weight: 700;">Pix</span>
+                    </div>
+                </div>
+
+                <!-- Protected badges -->
+                <div style="display: flex; gap: 8px; justify-content: center; margin-top: 1.5rem;">
+                    <span class="badge-pill">🔒 Dados protegidos</span>
+                    <span class="badge-pill">📱 Confira antes de pagar</span>
+                </div>
+
+                <button class="btn btn-primary mt-6 w-full" onclick="processPix()" style="font-size: 1.125rem;">
+                    Ir para pagamento
+                </button>
+                
+                <button class="btn btn-secondary mt-3 w-full" onclick="goToStep('valores')">
+                    Editar dados
+                </button>
+            </section>
+
+            <!-- STEP 2.7: CHECKOUT PERSONALIZADO DO PLANO MENSAL -->
+            <section class="funnel-step" id="step-checkout-plano">
+                <!-- Banner do Plano com cor customizada -->
+                <div id="checkout-plano-banner" style="border-radius: var(--radius-xl); padding: 1.5rem; color: white; margin-bottom: 1.5rem; position: relative;">
+                    <div style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; opacity: 0.9;" id="checkout-plano-operadora">TIM Controle</div>
+                    <div style="font-size: 2.5rem; font-weight: 900; line-height: 1.1; margin-top: 4px;" id="checkout-plano-gb">45 GB</div>
+                    <div style="font-size: 1.25rem; font-weight: 800; margin-top: 4px;" id="checkout-plano-preco">R$ 64,99/mês</div>
+                    
+                    <!-- Linha divisória fina -->
+                    <div style="height: 1px; background: rgba(255,255,255,0.2); margin: 12px 0;"></div>
+                    
+                    <!-- Detalhes do plano -->
+                    <div id="checkout-plano-desc-list" style="font-size: 0.8rem; opacity: 0.95; line-height: 1.4;">
+                        <!-- Benefícios injetados aqui -->
+                    </div>
+                    
+                    <!-- Apps inclusos no banner -->
+                    <div id="checkout-plano-apps-container" style="display: flex; align-items: center; margin-top: 12px;">
+                        <!-- Ícones de apps injetados aqui -->
+                    </div>
+                </div>
+
+                <div class="card" style="box-shadow: 0 4px 16px rgba(0,0,0,0.06); padding: 1.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-2xl);">
+                    <h3 class="checkout-title" style="font-size: 1.5rem; font-weight: 800; color: var(--carrier-color); margin-bottom: 1.5rem; text-align: left;">Dados pessoais</h3>
+                    
+                    <!-- Nome -->
+                    <div class="checkout-input-group">
+                        <label for="checkout-nome" class="checkout-input-label">Nome completo do titular *</label>
+                        <input type="text" id="checkout-nome" class="checkout-input-field" placeholder="Digite seu nome completo" required>
+                        <span class="error-message" id="error-checkout-nome">Nome completo é obrigatório.</span>
+                    </div>
+
+                    <!-- E-mail -->
+                    <div class="checkout-input-group">
+                        <label for="checkout-email" class="checkout-input-label">Digite seu e-mail *</label>
+                        <input type="email" id="checkout-email" class="checkout-input-field" placeholder="exemplo@email.com" required>
+                        <span class="error-message" id="error-checkout-email">E-mail obrigatório.</span>
+                    </div>
+
+                    <!-- Telefone Toggle (Usar mesmo ou outro) -->
+                    <div class="checkout-input-group">
+                        <label class="checkout-input-label">Qual é o seu telefone de contato?</label>
+                        
+                        <div class="custom-radio-container">
+                            <!-- Opção usar mesmo número -->
+                            <div class="custom-radio-option selected" id="radio-phone-same" onclick="selectCheckoutPhoneOption('same')">
+                                <div class="custom-radio-indicator">
+                                    <div class="custom-radio-dot"></div>
+                                </div>
+                                <span class="custom-radio-label">
+                                    Usar o mesmo número: <span id="checkout-same-phone-display" class="custom-radio-phone-display">(00) 00000-0000</span>
+                                </span>
+                            </div>
+                            
+                            <!-- Opção outro número -->
+                            <div class="custom-radio-option" id="radio-phone-other" onclick="selectCheckoutPhoneOption('other')">
+                                <div class="custom-radio-indicator">
+                                    <div class="custom-radio-dot"></div>
+                                </div>
+                                <span class="custom-radio-label">Informar outro número de contato</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Elementos de controle escondidos para compatibilidade -->
+                        <input type="radio" name="checkout-phone-option" id="phone-option-same" value="same" checked style="display: none;">
+                        <input type="radio" name="checkout-phone-option" id="phone-option-other" value="other" style="display: none;">
+
+                        <!-- Telefone alternativo (escondido por padrão) -->
+                        <div id="checkout-other-phone-wrapper" style="display: none; margin-top: 10px;">
+                            <input type="tel" id="checkout-telefone-outro" class="checkout-input-field" placeholder="(00) 00000-0000" maxlength="15">
+                            <span class="error-message" id="error-checkout-phone">Número de contato obrigatório.</span>
+                        </div>
+                    </div>
+
+                    <!-- CPF -->
+                    <div class="checkout-input-group">
+                        <label for="checkout-cpf" class="checkout-input-label">Informe o número do seu CPF *</label>
+                        <input type="tel" id="checkout-cpf" class="checkout-input-field" placeholder="000.000.000-00" maxlength="14" required>
+                        <span class="error-message" id="error-checkout-cpf">CPF inválido ou obrigatório.</span>
+                    </div>
+
+                    <!-- Checkbox de opt-in customizado -->
+                    <div class="custom-checkbox-row checked" id="checkout-optin-wrapper" onclick="toggleCheckoutOptin()">
+                        <div class="custom-checkbox-indicator">
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <span class="custom-checkbox-text">
+                            Aceito receber comunicações da <span id="checkout-optin-operadora" style="font-weight: 800;">TIM</span>
+                        </span>
+                        <input type="checkbox" id="checkout-optin" checked style="display: none;">
+                    </div>
+
+                    <!-- Botão Finalizar -->
+                    <button class="checkout-btn-primary mt-6" id="btn-finalizar-contratacao" onclick="submitCheckoutPlano()">
+                        Finalizar Contratação
+                    </button>
+                    
+                    <button class="checkout-btn-secondary" onclick="goToStep('valores')">
+                        Voltar
+                    </button>
+                </div>
+            </section>
+
+            <!-- STEP 3: SUCESSO PIX / RESUMO DA SOLICITAÇÃO -->
+            <section class="funnel-step" id="step-pix">
+                <div class="success-header text-center" style="border-bottom: 1px dashed #cbd5e1; padding-bottom: 1.25rem; margin-bottom: 1rem;">
+                    <h2 class="step-title" style="font-size: 1.75rem;">Resumo da Solicitação</h2>
+                    <p class="step-subtitle">Confira os dados antes de concluir o pagamento via PIX.</p>
+                </div>
+
+                <div class="pix-status-box mt-4" style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 0.6rem 0.85rem; border-radius: var(--radius-xl); display: flex; justify-content: space-between; align-items: center;">
+                    <div class="status-pill pending" style="background: white; border: 1px solid #cbd5e1; color: var(--primary); padding: 0.35rem 0.75rem; border-radius: 99px; font-size: 0.75rem; font-weight: 700;">⏳ Aguardando pagamento</div>
+                    <div class="status-pill id-pill" id="pix-trx-id" style="background: white; border: 1px solid #cbd5e1; color: var(--text-secondary); padding: 0.35rem 0.75rem; border-radius: 99px; font-size: 0.75rem; font-weight: 700; font-family: ui-monospace, monospace;">ID: TRX1782106119</div>
+                </div>
+
+                <!-- Table details with dotted lines -->
+                <div class="pix-details-table mt-6">
+                    <div class="pix-details-row">
+                        <span class="pix-dt-label">DATA/HORA</span>
+                        <span class="pix-dt-value" id="pix-data-hora">22/06/2026, 02:28:38</span>
+                    </div>
+                    <div class="pix-details-row">
+                        <span class="pix-dt-label">CELULAR</span>
+                        <span class="pix-dt-value" id="pix-celular">(16) 94646-1616</span>
+                    </div>
+                    <div class="pix-details-row">
+                        <span class="pix-dt-label">OPERADORA</span>
+                        <span class="pix-dt-value capitalize" id="pix-operadora">TIM</span>
+                    </div>
+                    <div class="pix-details-row">
+                        <span class="pix-dt-label">TIPO</span>
+                        <span class="pix-dt-value">Solicitação de recarga pré-paga</span>
+                    </div>
+                    <div class="pix-details-row">
+                        <span class="pix-dt-label">BÔNUS DE INTERNET</span>
+                        <span class="pix-dt-value" id="pix-bonus">+8GB</span>
+                    </div>
+                    <div class="pix-details-row">
+                        <span class="pix-dt-label">VALIDADE</span>
+                        <span class="pix-dt-value">30 dias</span>
+                    </div>
+                    <div class="pix-details-row">
+                        <span class="pix-dt-label">PAGAMENTO</span>
+                        <span class="pix-dt-value">PIX</span>
+                    </div>
+                </div>
+
+                <!-- Value box -->
+                <div class="pix-value-card mt-6">
+                    <span class="pix-value-label">VALOR DA SOLICITAÇÃO</span>
+                    <span class="pix-value-amount" id="pix-valor-final">R$ 30,00</span>
+                </div>
+
+                <!-- Alert/Platform Info -->
+                <div class="pix-platform-info mt-4">
+                    A TopaPay é uma plataforma digital independente. A solicitação será encaminhada para processamento após a confirmação do pagamento.
+                </div>
+
+                <!-- QR Code Box -->
+                <div class="pix-qrcode-section mt-6">
+                    <h3 class="pix-section-title">Código de pagamento PIX</h3>
+                    
+                    <div class="qr-code-box mt-3" style="width: 180px; height: 180px; padding: 0.5rem; background: white; border: 1px solid var(--border-color); border-radius: var(--radius-xl); margin: 0 auto;">
+                        <img src="" alt="QR Code PIX" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+
+                    <p class="pix-copia-cola-title mt-4">CÓDIGO PIX COPIA E COLA</p>
+                    <div class="pix-copia-cola-box mt-2">
+                        <textarea id="pix-code" class="pix-code-text" readonly></textarea>
+                    </div>
+
+                    <button class="btn btn-dark-blue mt-4 w-full" onclick="copyPixCode()" id="btn-copy-pix">
+                        Copiar código PIX
+                    </button>
+                    <p class="pix-copy-instruction mt-2">Após copiar, abra o aplicativo do seu banco e cole o código PIX.</p>
+                </div>
+
+                <!-- Countdown -->
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <div class="pix-expiration-box">
+                        Este código expira em <span id="pix-countdown" style="font-weight: 800; color: var(--primary);">10:00</span> por segurança.
+                    </div>
+                </div>
+
+                <!-- Refresh code button -->
+                <button class="btn-refresh-code mt-4 w-full" onclick="regeneratePix()">
+                    Gerar novo código
+                </button>
+
+                <!-- Warning bottom -->
+                <div class="pix-warning-box mt-4">
+                    Confira número, operadora e valor antes de concluir o pagamento. Dados informados incorretamente podem impedir o cancelamento após processamento.
+                </div>
+
+                <!-- Footer details specifically for pix page to look identical to screenshot -->
+                <div class="pix-page-footer mt-8">
+                    <p class="footer-bold">Recargas Celular <span style="font-weight: 500;">— Plataforma digital independente de intermediação de solicitações de recarga.</span></p>
+                    <p class="footer-regular">CNPJ: 07.976.857/0002-71</p>
+                    <p class="footer-regular">Rua Limeira, 229, Casa 1 - Boqueirao - CEP 11701-260 - Praia Grande/SP</p>
+                    <p class="footer-regular">suporte@topapay.online • Atendimento: Segunda a Sexta, das 09h às 18h • Telefone: (11) 2097-8573</p>
+                    <p class="footer-regular">Não somos operadora de telefonia nem possuímos vínculo oficial com Vivo, TIM, Claro, Oi, Algar ou Correios Celular.</p>
+                    <div class="footer-links-row mt-3">
+                        <a href="#" class="footer-link">Termos</a> • 
+                        <a href="#" class="footer-link">Privacidade</a> • 
+                        <a href="#" class="footer-link">Contato</a> • 
+                        <a href="#" class="footer-link">Reembolso</a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="security-seals">
+            <div class="seal">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Site Blindado
+            </div>
+            <div class="seal">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                SSL 256 bits
+            </div>
+        </div>
+        <div class="footer-admin-details" style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.6; margin-top: 1rem; margin-bottom: 1rem; max-width: 480px; margin-left: auto; margin-right: auto; text-align: center;">
+            <p style="font-weight: 800; color: var(--primary);">Recargas Celular</p>
+            <p>CNPJ: 07.976.857/0002-71</p>
+            <p>Rua Limeira, 229, Casa 1 - Boqueirao - CEP 11701-260 - Praia Grande/SP</p>
+            <p>Telefone: (11) 2097-8573</p>
+        </div>
+        <p class="copyright">© 2026 Recargas Celular. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="./js/app.js?v=3.1"></script>
+</body>
+</html>
