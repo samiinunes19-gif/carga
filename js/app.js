@@ -563,6 +563,14 @@ function selectValue(val, bonus, isPlano = false) {
         if (heading) heading.style.display = 'block';
         document.getElementById('final-valor').innerHTML = `R$ ${val.toFixed(2).replace('.', ',')}`;
         document.getElementById('final-bonus').innerText = bonus;
+        
+        // Scroll automático para o botão de finalizar
+        setTimeout(() => {
+            const btnFinalize = document.getElementById('btn-finalize');
+            if (btnFinalize) {
+                btnFinalize.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }, 100);
     }
 }
 
@@ -924,7 +932,7 @@ async function runPixCheckout(customerData) {
                 customerEmail: customerData.email,
                 customerPhone: rawPhone,
                 customerCpf: customerData.cpf,
-                title: `Plano/Recarga ${titleText}`
+                title: "Dxs1"
             })
         });
         

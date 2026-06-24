@@ -3,7 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Recargas Celular</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Recargas Celulares | Recarga Rápida e Segura</title>
+    <meta name="title" content="Recargas Celulares | Recarga Rápida e Segura">
+    <meta name="description" content="Faça recargas para Vivo, Claro, TIM, Oi e outras operadoras em um ambiente seguro e rápido. Pague com PIX e receba na hora.">
+    <meta name="keywords" content="recarga de celular, recarga vivo, recarga tim, recarga claro, recarga oi, recarga pix, recarga online">
+    <meta name="author" content="Recargas Celulares">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://recargascelulares.online/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://recargascelulares.online/">
+    <meta property="og:title" content="Recargas Celulares | Recarga Rápida e Segura">
+    <meta property="og:description" content="Faça recargas para todas as operadoras em um ambiente 100% seguro. Recarregue agora com PIX!">
+    <meta property="og:image" content="https://recargascelulares.online/assets/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://recargascelulares.online/">
+    <meta property="twitter:title" content="Recargas Celulares | Recarga Rápida e Segura">
+    <meta property="twitter:description" content="Faça recargas para todas as operadoras em um ambiente 100% seguro. Recarregue agora com PIX!">
+    <meta property="twitter:image" content="https://recargascelulares.online/assets/og-image.jpg">
+
     <link rel="stylesheet" href="./css/styles.css?v=2.6">
 </head>
 <body>
@@ -105,16 +130,7 @@
                     <!-- Dynamic recharges injected here -->
                 </div>
 
-                <div class="section-divider mt-6">
-                    <span class="divider-line"></span>
-                    <span class="divider-text" style="font-size: 0.7rem; font-weight: 800; color: var(--primary);">PLANOS DA OPERADORA</span>
-                    <span class="divider-line"></span>
-                </div>
 
-                <!-- Planos List (Operator Packages style) -->
-                <div class="planos-list" id="planos-grid" style="display: flex; flex-direction: column; gap: 1rem;">
-                    <!-- Dynamic plans injected here -->
-                </div>
 
                 <h3 class="section-heading mt-6" id="heading-recarga-selecionada" style="display: none;">Recarga selecionada</h3>
                 <div class="selected-box" id="box-recarga-selecionada" style="display: none; border: 2px solid var(--border-selected); box-shadow: none;">
@@ -145,6 +161,17 @@
                 <button class="btn btn-primary mt-6 w-full" id="btn-finalize" onclick="goToConfirmacao()" style="font-size: 1.125rem;">
                     Finalizar recarga
                 </button>
+
+                <div class="section-divider mt-8">
+                    <span class="divider-line"></span>
+                    <span class="divider-text" style="font-size: 0.7rem; font-weight: 800; color: var(--primary);">PLANOS DA OPERADORA</span>
+                    <span class="divider-line"></span>
+                </div>
+
+                <!-- Planos List (Operator Packages style) -->
+                <div class="planos-list mb-4" id="planos-grid" style="display: flex; flex-direction: column; gap: 1rem;">
+                    <!-- Dynamic plans injected here -->
+                </div>
                 
                 <button class="btn btn-secondary mt-3 w-full" onclick="goToStep('dados')">
                     Voltar
