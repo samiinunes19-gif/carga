@@ -22,7 +22,8 @@ function initTabs() {
             const titleMap = {
                 'dashboard': 'Visão Geral',
                 'orders': 'Gestão de Pedidos',
-                'marketing': 'Controle de Marketing'
+                'marketing': 'Controle de Marketing',
+                'pages': 'Páginas do Site'
             };
             document.getElementById('page-title').innerText = titleMap[targetId];
         });
