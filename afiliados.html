@@ -3,237 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Seja um Afiliado | Revenda Recargas Oficiais</title>
-    <meta name="description" content="Torne-se um parceiro e revenda recargas das maiores operadoras no seu estabelecimento.">
+    <title>Programa de Revendedores Oficiais | Telecom</title>
+    <meta name="description" content="Torne-se um parceiro e revenda recargas das maiores operadoras no seu estabelecimento de forma segura e com alta lucratividade.">
     <meta name="robots" content="index, follow">
-    <link rel="stylesheet" href="./css/styles.css?v=2.6">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        .hero-banner {
-            background: linear-gradient(135deg, var(--primary) 0%, #001A5A 100%);
-            color: white;
-            padding: 4rem 1.5rem;
-            text-align: center;
-            border-radius: 0 0 2rem 2rem;
-            margin-bottom: 3rem;
+        :root {
+            --primary: #002F9C;
+            --vivo: #660099;
+            --claro: #e32636;
+            --tim: #002F9C;
+            --algar: #00a859;
+            --correios: #ffe600;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --whatsapp: #25D366;
         }
-        .hero-banner h1 {
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-        .hero-banner p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto 2rem auto;
-        }
-        .info-section {
-            max-width: 1000px;
-            margin: 0 auto 4rem auto;
-            padding: 0 1.5rem;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--text-main);
-            margin-bottom: 2.5rem;
-            font-weight: 800;
-        }
-        .operator-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        .operator-card {
-            background: white;
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s;
-        }
-        .operator-card:hover {
-            transform: translateY(-5px);
-        }
-        .operator-logo-placeholder {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            font-size: 1.5rem;
-            color: white;
-            margin-bottom: 1.5rem;
-        }
-        .bg-vivo { background: #A62687; }
-        .bg-claro { background: #E32636; }
-        .bg-tim { background: #002F9C; }
-        .bg-algar { background: #00A859; }
-        .bg-correios { background: #0B3B7C; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+        body { background-color: #ffffff; color: var(--dark); line-height: 1.6; }
+        
+        /* Header */
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; background: white; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; }
+        .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 1.5rem; color: var(--dark); letter-spacing: -0.5px; }
+        .nav-cta { background: var(--dark); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: 0.3s; }
+        .nav-cta:hover { background: #1e293b; }
 
-        .btn-whatsapp {
-            background-color: #25D366;
-            color: white;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            border-radius: 99px;
-            text-decoration: none;
-            transition: background 0.3s;
-        }
-        .btn-whatsapp:hover {
-            background-color: #1DA851;
-            color: white;
-        }
-        .steps-container {
-            background: #f8fafc;
-            padding: 4rem 1.5rem;
-            border-radius: 2rem;
-            margin-bottom: 4rem;
-        }
-        .step-item {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        .step-number {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            flex-shrink: 0;
+        /* Hero */
+        .hero { position: relative; padding: 8rem 5%; min-height: 600px; display: flex; align-items: center; background-image: url('./assets/hero-bg.png'); background-size: cover; background-position: center; }
+        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.7) 100%); }
+        .hero-content { position: relative; z-index: 10; max-width: 650px; color: white; }
+        .hero-badge { display: inline-block; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1.5rem; letter-spacing: 1px; text-transform: uppercase; }
+        .hero-title { font-size: 3.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -1px; }
+        .hero-subtitle { font-size: 1.2rem; color: #cbd5e1; margin-bottom: 2.5rem; font-weight: 400; }
+        
+        .btn-whatsapp { display: inline-flex; align-items: center; gap: 10px; background: var(--whatsapp); color: white; text-decoration: none; padding: 1.2rem 2.5rem; border-radius: 8px; font-weight: 700; font-size: 1.1rem; transition: 0.3s; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); }
+        .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4); }
+        
+        /* Stats Strip */
+        .stats { display: flex; justify-content: center; gap: 4rem; padding: 3rem 5%; background: var(--dark); color: white; flex-wrap: wrap; }
+        .stat-item { text-align: center; }
+        .stat-value { font-size: 2.5rem; font-weight: 900; color: #38bdf8; }
+        .stat-label { font-size: 0.9rem; color: #94a3b8; text-transform: uppercase; font-weight: 600; letter-spacing: 1px; }
+
+        /* Operadoras */
+        .section-padding { padding: 6rem 5%; }
+        .section-header { text-align: center; margin-bottom: 4rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .section-title { font-size: 2.5rem; font-weight: 900; margin-bottom: 1rem; letter-spacing: -0.5px; }
+        .section-desc { font-size: 1.1rem; color: var(--gray); }
+
+        .operators-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .operator-card { background: white; border: 1px solid #e2e8f0; border-radius: 16px; padding: 2.5rem; transition: 0.4s; position: relative; overflow: hidden; }
+        .operator-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-color: transparent; }
+        
+        /* Authentic Brand Typography Mimicry */
+        .logo-vivo { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 2.2rem; color: var(--vivo); letter-spacing: -1.5px; display: inline-block; margin-bottom: 1.5rem; }
+        .logo-claro { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 2.2rem; color: var(--claro); display: inline-block; margin-bottom: 1.5rem; letter-spacing: -1px; }
+        .logo-tim { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 2.2rem; color: var(--tim); display: inline-block; margin-bottom: 1.5rem; font-style: italic; letter-spacing: -1px; }
+        .logo-algar { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 2rem; color: var(--algar); display: inline-block; margin-bottom: 1.5rem; letter-spacing: -1px; }
+        .logo-correios { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 1.5rem; color: #000; display: inline-block; margin-bottom: 1.5rem; letter-spacing: -1px; border-bottom: 4px solid var(--correios); padding-bottom: 2px;}
+
+        .operator-features { margin-top: 1.5rem; }
+        .feature-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 0.8rem; font-size: 0.95rem; color: var(--gray); }
+        .feature-icon { color: #10b981; margin-top: 3px; }
+
+        /* Steps */
+        .steps-bg { background-color: var(--light); border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
+        .steps-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; max-width: 1200px; margin: 0 auto; }
+        .step { position: relative; }
+        .step-number { font-size: 5rem; font-weight: 900; color: #e2e8f0; position: absolute; top: -30px; left: -10px; z-index: 0; line-height: 1; }
+        .step-content { position: relative; z-index: 1; }
+        .step-title { font-size: 1.3rem; font-weight: 800; margin-bottom: 1rem; color: var(--dark); }
+
+        /* Footer */
+        .footer { background: white; padding: 4rem 5% 2rem; border-top: 1px solid #e2e8f0; }
+        .footer-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; max-width: 1200px; margin: 0 auto 3rem; }
+        .legal-text { font-size: 0.8rem; color: #94a3b8; line-height: 1.6; border-top: 1px solid #f1f5f9; padding-top: 2rem; text-align: center; }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .stats { gap: 2rem; flex-direction: column; }
+            .footer-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
-<body style="background-color: var(--bg-color);">
+<body>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="header-container">
-            <div class="logo" style="gap: 8px; display: flex; align-items: center;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--primary)" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span style="font-weight: 900; font-size: 1.25rem; color: var(--primary);">Portal Parceiros</span>
-            </div>
-            <div class="safe-badge">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                Site Oficial
-            </div>
+    <nav class="navbar">
+        <div class="nav-logo">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            Parceiros B2B
+        </div>
+        <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20quero%20solicitar%20credenciamento" target="_blank" class="nav-cta">Credenciamento</a>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-badge">Portal Oficial de Homologação</span>
+            <h1 class="hero-title">Atraia mais clientes revendendo recargas.</h1>
+            <p class="hero-subtitle">Homologue o seu estabelecimento para revender créditos da Vivo, Claro, TIM e outras. Sem burocracia, sem mensalidade e com alta lucratividade por transação.</p>
+            <a href="https://wa.me/5511999999999?text=Quero%20falar%20com%20um%20consultor%20agora" target="_blank" class="btn-whatsapp">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                Falar com um Consultor (WhatsApp)
+            </a>
         </div>
     </header>
 
-    <div class="hero-banner">
-        <h1>Transforme seu Comércio em um Ponto de Recarga Autorizado</h1>
-        <p>Torne-se um parceiro afiliado e passe a revender recargas das maiores operadoras do Brasil. Aumente seu faturamento e traga mais clientes para sua loja de forma 100% legalizada.</p>
-        <a href="https://wa.me/5511999999999?text=Olá,%20quero%20ser%20um%20afiliado%20de%20recargas" class="btn-whatsapp" target="_blank">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.122 1.536 5.895L0 24l6.25-1.594C7.98 23.407 9.932 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.92 0-3.754-.497-5.385-1.42l-.386-.22-3.89.992 1.01-3.793-.243-.385C2.164 15.54 1.636 13.82 1.636 12 1.636 6.28 6.28 1.636 12 1.636S22.364 6.28 22.364 12 17.72 22 12 22zm5.727-7.854c-.314-.157-1.855-.916-2.143-1.02-.286-.105-.497-.157-.706.157-.21.314-.811 1.02-1.001 1.23-.188.21-.377.236-.691.08-1.748-.87-3.04-2.185-3.868-3.642-.116-.205.105-.2.257-.503.052-.105.026-.196-.013-.275-.04-.08-.707-1.702-.968-2.33-.255-.612-.513-.53-.706-.54l-.603-.01c-.21 0-.55.08-.838.393-.288.314-1.1 1.074-1.1 2.619 0 1.545 1.126 3.038 1.283 3.248.157.21 2.215 3.38 5.362 4.664.75.304 1.336.486 1.792.622.753.223 1.439.192 1.979.116.604-.085 1.855-.758 2.116-1.492.262-.733.262-1.362.183-1.492-.078-.13-.288-.21-.602-.367z"/></svg>
-            Fale com um Especialista no WhatsApp
-        </a>
+    <div class="stats">
+        <div class="stat-item">
+            <div class="stat-value">+15k</div>
+            <div class="stat-label">Pontos Ativos</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">5</div>
+            <div class="stat-label">Operadoras Homologadas</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">0%</div>
+            <div class="stat-label">Taxa de Adesão</div>
+        </div>
     </div>
 
-    <main class="info-section">
-        <h2 class="section-title">Nossas Redes e Cobertura</h2>
-        <div class="operator-grid">
+    <section class="section-padding">
+        <div class="section-header">
+            <h2 class="section-title">Portfólio de Operadoras</h2>
+            <p class="section-desc">Você terá acesso imediato à emissão de créditos em tempo real para as principais redes de telecomunicação do país.</p>
+        </div>
+
+        <div class="operators-grid">
             <!-- VIVO -->
             <div class="operator-card">
-                <div class="operator-logo-placeholder bg-vivo">V</div>
-                <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem;">Vivo (Telefônica)</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.5rem;">A maior rede de cobertura móvel do Brasil. Revender planos Vivo atrai um enorme fluxo de clientes para o seu negócio devido à sua base consolidada de usuários.</p>
-                <ul style="list-style: none; padding: 0; font-size: 0.85rem; color: var(--text-main);">
-                    <li style="margin-bottom: 0.5rem;">✓ Cobertura 4.5G e 5G nacional</li>
-                    <li style="margin-bottom: 0.5rem;">✓ Planos Controle e Easy</li>
-                </ul>
+                <div class="logo-vivo">vivo</div>
+                <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem; color: var(--dark);">A Maior Cobertura do Brasil</h3>
+                <p style="color: var(--gray); font-size: 0.95rem;">Líder absoluta no mercado móvel. Oferecer Vivo garante um fluxo constante de clientes fidelizados no seu negócio.</p>
+                <div class="operator-features">
+                    <div class="feature-item"><svg class="feature-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Planos Controle e Easy</div>
+                    <div class="feature-item"><svg class="feature-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Ampla margem de revenda</div>
+                </div>
             </div>
 
             <!-- CLARO -->
             <div class="operator-card">
-                <div class="operator-logo-placeholder bg-claro">C</div>
-                <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem;">Claro</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.5rem;">Reconhecida pela internet mais rápida do país. Ofereça aos seus clientes pacotes com muita internet e benefícios exclusivos em redes sociais.</p>
-                <ul style="list-style: none; padding: 0; font-size: 0.85rem; color: var(--text-main);">
-                    <li style="margin-bottom: 0.5rem;">✓ Líder em velocidade de conexão</li>
-                    <li style="margin-bottom: 0.5rem;">✓ Planos Prezão altamente populares</li>
-                </ul>
+                <div class="logo-claro">Claro-</div>
+                <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem; color: var(--dark);">Internet Mais Rápida</h3>
+                <p style="color: var(--gray); font-size: 0.95rem;">Altíssima demanda por recargas dos planos Prezão e Flex. Conexão reconhecida internacionalmente.</p>
+                <div class="operator-features">
+                    <div class="feature-item"><svg class="feature-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Pacotes semanais e mensais</div>
+                    <div class="feature-item"><svg class="feature-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Benefícios em Apps inclusos</div>
+                </div>
             </div>
 
             <!-- TIM -->
             <div class="operator-card">
-                <div class="operator-logo-placeholder bg-tim">T</div>
-                <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem;">TIM</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.5rem;">A operadora com a maior cobertura 4G no território nacional. Os planos Beta e TIM Controle são campeões de vendas em todo tipo de comércio.</p>
-                <ul style="list-style: none; padding: 0; font-size: 0.85rem; color: var(--text-main);">
-                    <li style="margin-bottom: 0.5rem;">✓ Maior rede 4G do país</li>
-                    <li style="margin-bottom: 0.5rem;">✓ Pacotes robustos com parcerias (Deezer, Prime)</li>
-                </ul>
+                <div class="logo-tim">TIM</div>
+                <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem; color: var(--dark);">Maior Rede 4G/5G</h3>
+                <p style="color: var(--gray); font-size: 0.95rem;">Pioneira no 5G. A linha TIM Beta e Controle atrai público jovem, gerando alta conversão para seu PDV.</p>
+                <div class="operator-features">
+                    <div class="feature-item"><svg class="feature-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Líder em cobertura urbana</div>
+                    <div class="feature-item"><svg class="feature-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Planos com alta retenção</div>
+                </div>
             </div>
-
+            
             <!-- ALGAR & CORREIOS -->
             <div class="operator-card">
-                <div class="operator-logo-placeholder bg-algar">A</div>
-                <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem;">Algar Telecom</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.5rem;">Forte presença em diversas regiões estratégicas. Ótima opção de portfólio adicional para aumentar a conveniência do seu PDV.</p>
+                <div class="logo-algar">Algar</div>
+                <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem; color: var(--dark);">Presença Estratégica</h3>
+                <p style="color: var(--gray); font-size: 0.95rem;">Fundamental para diversas regiões corporativas e forte expansão em fibra e móvel.</p>
             </div>
             
             <div class="operator-card">
-                <div class="operator-logo-placeholder bg-correios">C</div>
-                <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem;">Correios Celular</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.5rem;">Operadora móvel virtual (MVNO) que tem crescido exponencialmente. Ideal para clientes que buscam planos sem burocracia e com a confiança da marca Correios.</p>
+                <div class="logo-correios">Correios<br><span style="color: var(--primary); font-size: 1rem;">Celular</span></div>
+                <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem; color: var(--dark);">Crescimento Acelerado</h3>
+                <p style="color: var(--gray); font-size: 0.95rem;">A marca de confiança nacional agora em telefonia móvel. Altíssima adesão entre o público tradicional.</p>
             </div>
         </div>
+    </section>
 
-        <div class="steps-container" style="margin-top: 4rem;">
-            <h2 class="section-title">Como Funciona a Afiliação?</h2>
-            
-            <div class="step-item">
+    <section class="section-padding steps-bg">
+        <div class="section-header">
+            <h2 class="section-title">Processo de Credenciamento</h2>
+            <p class="section-desc">Tornar-se um parceiro credenciado é rápido, digital e sem custos de implantação. Veja como começar.</p>
+        </div>
+        
+        <div class="steps-container">
+            <div class="step">
                 <div class="step-number">1</div>
-                <div>
-                    <h4 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem;">Cadastro Gratuito</h4>
-                    <p style="color: var(--text-muted); line-height: 1.5;">Você entra em contato com nossa equipe comercial pelo WhatsApp e fazemos o seu credenciamento junto às distribuidoras oficiais sem nenhuma taxa de adesão.</p>
+                <div class="step-content">
+                    <h3 class="step-title">Contato Inicial</h3>
+                    <p style="color: var(--gray); font-size: 0.95rem;">Você aciona nossa equipe comercial via WhatsApp, envia os dados do seu estabelecimento comercial (CNPJ ou CPF) para análise.</p>
                 </div>
             </div>
-            
-            <div class="step-item">
+            <div class="step">
                 <div class="step-number">2</div>
-                <div>
-                    <h4 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem;">Acesso ao Sistema</h4>
-                    <p style="color: var(--text-muted); line-height: 1.5;">Sua loja ganha acesso imediato ao nosso portal integrado de recargas. Basta um computador ou celular com internet para começar a emitir saldo.</p>
+                <div class="step-content">
+                    <h3 class="step-title">Aprovação Imediata</h3>
+                    <p style="color: var(--gray); font-size: 0.95rem;">A análise leva poucos minutos. Uma vez aprovado, seu portal de parceiro e link exclusivo são gerados e configurados na hora.</p>
                 </div>
             </div>
-            
-            <div class="step-item">
+            <div class="step">
                 <div class="step-number">3</div>
-                <div>
-                    <h4 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem;">Venda e Lucre</h4>
-                    <p style="color: var(--text-muted); line-height: 1.5;">Venda recargas no balcão para seus clientes e ganhe comissão por cada transação efetuada. Tudo legalizado e integrado ao sistema de distribuição nacional.</p>
+                <div class="step-content">
+                    <h3 class="step-title">Lucre Imediatamente</h3>
+                    <p style="color: var(--gray); font-size: 0.95rem;">Acesse o portal e passe a emitir recargas no balcão da sua loja. Você retém sua comissão direto da fonte, multiplicando seus resultados de forma legal.</p>
                 </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="https://wa.me/5511999999999?text=Quero%20iniciar%20meu%20cadastro%20de%20afiliado" class="btn-whatsapp" target="_blank">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.122 1.536 5.895L0 24l6.25-1.594C7.98 23.407 9.932 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.92 0-3.754-.497-5.385-1.42l-.386-.22-3.89.992 1.01-3.793-.243-.385C2.164 15.54 1.636 13.82 1.636 12 1.636 6.28 6.28 1.636 12 1.636S22.364 6.28 22.364 12 17.72 22 12 22zm5.727-7.854c-.314-.157-1.855-.916-2.143-1.02-.286-.105-.497-.157-.706.157-.21.314-.811 1.02-1.001 1.23-.188.21-.377.236-.691.08-1.748-.87-3.04-2.185-3.868-3.642-.116-.205.105-.2.257-.503.052-.105.026-.196-.013-.275-.04-.08-.707-1.702-.968-2.33-.255-.612-.513-.53-.706-.54l-.603-.01c-.21 0-.55.08-.838.393-.288.314-1.1 1.074-1.1 2.619 0 1.545 1.126 3.038 1.283 3.248.157.21 2.215 3.38 5.362 4.664.75.304 1.336.486 1.792.622.753.223 1.439.192 1.979.116.604-.085 1.855-.758 2.116-1.492.262-.733.262-1.362.183-1.492-.078-.13-.288-.21-.602-.367z"/></svg>
-                    Quero me Afiliar Agora
-                </a>
             </div>
         </div>
-    </main>
+        
+        <div style="text-align: center; margin-top: 5rem;">
+            <a href="https://wa.me/5511999999999?text=Quero%20solicitar%20a%20an%C3%A1lise%20do%20meu%20estabelecimento" target="_blank" class="btn-whatsapp" style="font-size: 1.25rem; padding: 1.5rem 3rem;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                Solicitar Credenciamento Comercial
+            </a>
+        </div>
+    </section>
 
-    <footer style="background: white; padding: 2rem; text-align: center; border-top: 1px solid var(--border-color); font-size: 0.8rem; color: var(--text-muted);">
-        <p>© 2024 Portal de Parceiros e Afiliados. Todos os direitos reservados.</p>
-        <p style="margin-top: 0.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-            Aviso Legal: As marcas registradas "Vivo", "Claro", "TIM", "Algar" e "Correios Celular" pertencem às suas respectivas empresas. Este portal atua como um facilitador de afiliação comercial independente.
-        </p>
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <div class="nav-logo" style="margin-bottom: 1.5rem;">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    Portal B2B
+                </div>
+                <p style="color: var(--gray); font-size: 0.95rem;">Potencialize as vendas do seu estabelecimento comercial integrando as maiores redes de telecomunicação de forma 100% legalizada e oficial.</p>
+            </div>
+            <div style="display: flex; gap: 4rem; justify-content: flex-end;">
+                <div>
+                    <h4 style="font-weight: 800; margin-bottom: 1rem; color: var(--dark);">Suporte</h4>
+                    <ul style="list-style: none; color: var(--gray); font-size: 0.9rem; line-height: 2;">
+                        <li>Fale Conosco</li>
+                        <li>Dúvidas Frequentes</li>
+                        <li>Integração PDV</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="font-weight: 800; margin-bottom: 1rem; color: var(--dark);">Legal</h4>
+                    <ul style="list-style: none; color: var(--gray); font-size: 0.9rem; line-height: 2;">
+                        <li>Termos de Uso</li>
+                        <li>Privacidade</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="legal-text">
+            As marcas registradas "Vivo", "Claro", "TIM", "Algar" e "Correios Celular" pertencem às suas respectivas companhias. Este portal atua independentemente como facilitador B2B para credenciamento de pontos de venda, não sendo o website direto ao consumidor das operadoras.
+        </div>
     </footer>
 
 </body>
