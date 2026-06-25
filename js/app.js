@@ -140,7 +140,7 @@ const plansByOperator = {
             apps: ['whatsapp', 'messenger']
         },
         { 
-            value: 64.99, 
+            value: 51.99, 
             bonus: '45GB', 
             popular: false, 
             badge: 'TIM Controle Plus', 
@@ -153,7 +153,7 @@ const plansByOperator = {
             apps: ['whatsapp', 'instagram', 'facebook', 'twitter', 'deezer']
         },
         { 
-            value: 169.99, 
+            value: 135.99, 
             bonus: '110GB', 
             popular: false, 
             badge: 'TIM Black', 
@@ -168,7 +168,7 @@ const plansByOperator = {
     ],
     claro: [
         { 
-            value: 59.90, 
+            value: 47.92, 
             bonus: '41GB', 
             popular: true, 
             badge: 'Oferta do Hexa',
@@ -181,7 +181,7 @@ const plansByOperator = {
             apps: ['whatsapp', 'instagram', 'facebook', 'youtube', 'tiktok']
         },
         { 
-            value: 69.90, 
+            value: 55.92, 
             bonus: '46GB', 
             popular: false, 
             badge: 'Oferta do Hexa',
@@ -194,7 +194,7 @@ const plansByOperator = {
             apps: ['whatsapp', 'instagram', 'facebook', 'youtube', 'tiktok']
         },
         { 
-            value: 99.90, 
+            value: 79.92, 
             bonus: '35GB', 
             popular: false, 
             badge: 'GeForce NOW',
@@ -209,7 +209,7 @@ const plansByOperator = {
     ],
     vivo: [
         { 
-            value: 59, 
+            value: 47.20, 
             bonus: '46GB', 
             popular: true, 
             badge: 'Vivo Controle',
@@ -234,7 +234,7 @@ const plansByOperator = {
             apps: ['whatsapp']
         },
         { 
-            value: 150, 
+            value: 120, 
             bonus: '60GB', 
             popular: false, 
             badge: 'Vivo Pós',
@@ -284,7 +284,7 @@ const plansByOperator = {
             apps: ['whatsapp']
         },
         { 
-            value: 60, 
+            value: 48, 
             bonus: '40GB', 
             popular: false, 
             badge: 'Algar Super',
@@ -412,9 +412,9 @@ function renderValoresGrid() {
             if (plan.badge === 'Vivo Controle') {
                 btnText = 'Contratar Vivo Controle';
             } else if (plan.badge === 'Easy Lite') {
-                btnText = 'Assinar Easy Lite';
+                btnText = 'Contratar Easy Lite';
             } else if (plan.badge === 'Vivo Pós') {
-                btnText = 'Assinar Vivo Pós';
+                btnText = 'Contratar Vivo Pós';
             } else {
                 btnText = 'Fazer Recarga';
             }
