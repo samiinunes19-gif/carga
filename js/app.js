@@ -61,10 +61,10 @@ function initMasks() {
 
 const rechargesByOperator = {
     tim: [
-        { value: 15, bonus: '2GB' },
         { value: 20, bonus: '4GB' },
         { value: 25, bonus: '6GB' },
         { value: 30, bonus: '10GB' },
+        { value: 35, bonus: '11GB' },
         { value: 40, bonus: '12GB' },
         { value: 50, bonus: '15GB' },
         { value: 60, bonus: '20GB' },
@@ -72,10 +72,10 @@ const rechargesByOperator = {
         { value: 100, bonus: '50GB' }
     ],
     claro: [
-        { value: 15, bonus: '2GB' },
         { value: 20, bonus: '5GB' },
         { value: 25, bonus: '6GB' },
         { value: 30, bonus: '10GB' },
+        { value: 35, bonus: '11GB' },
         { value: 40, bonus: '12GB' },
         { value: 50, bonus: '15GB' },
         { value: 60, bonus: '20GB' },
@@ -83,10 +83,10 @@ const rechargesByOperator = {
         { value: 100, bonus: '50GB' }
     ],
     vivo: [
-        { value: 15, bonus: '2GB' },
         { value: 20, bonus: '4GB' },
         { value: 25, bonus: '6GB' },
         { value: 30, bonus: '10GB' },
+        { value: 35, bonus: '11GB' },
         { value: 40, bonus: '12GB' },
         { value: 50, bonus: '15GB' },
         { value: 60, bonus: '20GB' },
@@ -94,10 +94,10 @@ const rechargesByOperator = {
         { value: 100, bonus: '50GB' }
     ],
     oi: [
-        { value: 15, bonus: '2GB' },
         { value: 20, bonus: '4GB' },
         { value: 25, bonus: '6GB' },
         { value: 30, bonus: '10GB' },
+        { value: 35, bonus: '11GB' },
         { value: 40, bonus: '12GB' },
         { value: 50, bonus: '15GB' },
         { value: 60, bonus: '20GB' },
@@ -105,19 +105,19 @@ const rechargesByOperator = {
         { value: 100, bonus: '50GB' }
     ],
     algar: [
-        { value: 15, bonus: '2GB' },
         { value: 20, bonus: '4GB' },
         { value: 25, bonus: '6GB' },
         { value: 30, bonus: '10GB' },
+        { value: 35, bonus: '11GB' },
         { value: 40, bonus: '12GB' },
         { value: 50, bonus: '15GB' },
         { value: 100, bonus: '50GB' }
     ],
     correios: [
-        { value: 15, bonus: '2GB' },
         { value: 20, bonus: '4GB' },
         { value: 25, bonus: '6GB' },
         { value: 30, bonus: '10GB' },
+        { value: 35, bonus: '11GB' },
         { value: 40, bonus: '12GB' },
         { value: 50, bonus: '15GB' },
         { value: 100, bonus: '50GB' }
